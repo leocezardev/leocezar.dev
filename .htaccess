@@ -1,7 +1,12 @@
+<files ~ "^.*\.([Hh][Tt][Aa])">
+order allow,deny
+deny from all
+satisfy all
+</files>
+
 RewriteEngine On
 RewriteBase /
-RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
-RewriteRule ^ %1 [R,L]
+RewriteRule ^leocezar.dev/program-dev.html$ - [L] 
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.*?)/?$ $1.html [L]
+RewriteRule . /program-dev.html [L]
